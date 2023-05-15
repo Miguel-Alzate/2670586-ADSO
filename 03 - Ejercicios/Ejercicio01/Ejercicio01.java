@@ -3,6 +3,8 @@ public class Ejercicio01{
     public static void main(String[] args){
     Scanner entrada = new Scanner(System.in);   
 
+    //Suma de dos números
+
     int numero_1;
     int numero_2;
     int resultado;
