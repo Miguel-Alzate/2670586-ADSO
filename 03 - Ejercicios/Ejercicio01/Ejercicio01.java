@@ -5,9 +5,9 @@ public class Ejercicio01{
 
     //Suma de dos números
 
-    int numero_1;
-    int numero_2;
-    int resultado;
+    int numero_1 = 0;
+    int numero_2 = 0;
+    int resultado = 0;
 
     System.out.println("Ingrese el numero 1: ");
     numero_1 = entrada.nextInt();

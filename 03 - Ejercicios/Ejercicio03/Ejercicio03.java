@@ -5,9 +5,9 @@ public class Ejercicio03{
 
     //Intercambio de variables (con auxiliar)
 
-    int num_1;
-    int num_2;
-    int aux;
+    int num_1 = 0;
+    int num_2 = 0;
+    int aux = 0;
 
         System.out.println("Ingrese el primer número");
         num_1 = entrada.nextInt();

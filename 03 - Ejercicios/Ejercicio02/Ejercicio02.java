@@ -5,8 +5,8 @@ public class Ejercicio02{
 
         //Conversión de temperatura
 
-        int grados;
-        int conv;
+        int grados = 0;
+        int conv = 0;
         
 
         System.out.println("Ingrese el grado que quiere convertir de Celsius a Fahrenheit.");

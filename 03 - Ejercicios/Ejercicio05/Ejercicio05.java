@@ -5,9 +5,9 @@ public class Ejercicio05{
 
     //Cálculo del área de un triángulo
 
-    int base;
-    int altura;
-    int area;
+    int base = 0;
+    int altura = 0;
+    int area = 0;
     System.out.println("Ingresa la base de tu triangulo.");
     base = entrada.nextInt();
 

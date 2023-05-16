@@ -5,8 +5,8 @@ public class Ejercicio04{
 
     //Intercambio de variables (sin auxiliar)
 
-    int num_1;
-    int num_2;
+    int num_1 = 0;
+    int num_2 = 0;
 
         System.out.println("Ingrese el primer número");
         num_1 = entrada.nextInt();

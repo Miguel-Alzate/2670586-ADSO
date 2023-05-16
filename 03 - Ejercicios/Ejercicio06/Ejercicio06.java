@@ -5,12 +5,12 @@ public class Ejercicio06{
 
     //Cálculo de promedio
     
-    float num_1;
-    float num_2;
-    float num_3;
-    float num_4;
-    float num_5;
-    float prom;
+    float num_1 = 0;
+    float num_2 = 0;
+    float num_3 = 0;
+    float num_4 = 0;
+    float num_5 = 0;
+    float prom = 0;
 
     System.out.println("Promedio de notas, ingresa tu 1° nota");
     num_1 = entrada.nextFloat();
