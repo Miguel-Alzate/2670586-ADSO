@@ -5,24 +5,29 @@ public class Ejercicio16{
 
     //Interés compuesto
 
-        double inversion = 0;
+        int inversion = 0;
         double interes = 0;
         double mfinal = 0;
         int periodo = 0;
 
-        System.out.print("Ingrese la inversion inicial: ");
-        inversion = entrada.nextDouble();
-        
-        System.out.print("Digite cuanto interés quiere sacar al final: ");
+
+        System.out.println("Digite la inversión inicial: ");
+        inversion = entrada.nextInt();
+
+        System.out.println("Ingrese la tasa de interés que desea tener: ");
         interes = entrada.nextDouble();
-        
-        System.out.print("Introduce el tiempo que estará la inversión: ");
+
+        System.out.println("Ingrese el periodo de tiempo en el que estará la inversión (en meses) ");
         periodo = entrada.nextInt();
-        
-        periodo = periodo * 12;
-        interes = interes/365;
-        mfinal = inversion * Math.pow(1 + interes, periodo);
-        
-        System.out.print("Este es el monto final:"+mfinal);
+
+
+
+        interes = interes /100;
+        mfinal = inversion * Math.pow (1 + interes, periodo);
+
+
+
+        System.out.println ("El monto final con intereses es de: "+mfinal);
+
     }
 }
