@@ -5,21 +5,24 @@ public class Ejercicio13{
 
     //Horas, minutos y segundos
 
-    int segundos = 0;
+    int segundos1 = 0;
     int minutos = 0;
-    double hora = 0;
+    int hora = 0;
+    int segundos2 = 0;
 
 
-    System.out.println("Ingrese los segundos que quiere convertir a minutos y horas");
-    segundos = entrada.nextInt();
+    System.out.println("Ingrese los segundos que quiere convertir formato horas, minutos y segundos");
+    segundos1 = entrada.nextInt();
 
-
-    minutos = segundos/60;
+    
+    minutos = segundos1 /60;
+    segundos2 = segundos1 % 60;
+    
+    
     hora = minutos/60;
+    minutos = minutos % 60;
 
-    System.out.println("Esta es la conversión de "+segundos+" segundos a minutos: "+minutos);
-    System.out.println("Esta es la conversión de "+segundos+" segundos a horas: "+hora);
-    System.out.println("Esta es la conversión de "+segundos+" segundos a segundos???: "+segundos);
+    System.out.println("Esta es la conversión de "+segundos1+" a formato hora, minutos y segundos: "+hora+":"+minutos+":"+segundos2);
 
 
     }
