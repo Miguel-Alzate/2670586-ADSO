@@ -22,81 +22,72 @@ Scanner entrada = new Scanner(System.in);
     nota_5 = entrada.nextFloat();
 
     promedio = (nota_1 + nota_2 + nota_3 + nota_4 + nota_5)/5;
-    
-    if(promedio < 3 & nota_1 > nota_2 & nota_1 > nota_3 & nota_1 > nota_4 & nota_1 > nota_5 && nota_2<nota_1 & nota_2<nota_3 & nota_2<nota_4 & nota_2<nota_5) {
-        System.out.println(" ");
-        System.out.println("Informe: ");
-        System.out.println("        --> Asignatura con mejor nota: Matemáticas ");
-        System.out.println("        --> Asignatura con menor nota: Español");
-        System.out.println("        --> Promedio de notas: "+promedio);
-        System.out.println("        --> Debió obtener una nota de  en para aprobar el periodo.");
-    }else if(promedio < 3 & nota_2 > nota_1 & nota_2 > nota_3 & nota_2 > nota_4 & nota_2 > nota_5){
-        System.out.println(" ");
-        System.out.println("Informe: ");
-        System.out.println("        --> Asignatura con mejor nota: Español ");
-        System.out.println("        --> Asignatura con menor nota: ");
-        System.out.println("        --> Promedio de notas: "+promedio);
-        System.out.println("        --> Debió obtener una nota de  en para aprobar el periodo.");
-    }else if(promedio < 3 & nota_3 > nota_1 & nota_3 > nota_2 & nota_3 > nota_4 & nota_3 > nota_5){
-        System.out.println(" ");
-        System.out.println("Informe: ");
-        System.out.println("        --> Asignatura con mejor nota: Inglés ");
-        System.out.println("        --> Asignatura con menor nota: ");
-        System.out.println("        --> Promedio de notas: "+promedio);
-        System.out.println("        --> Debió obtener una nota de  en para aprobar el periodo.");
-    }else if(promedio < 3 & nota_4 > nota_1 & nota_4 > nota_2 & nota_4 > nota_3 & nota_4 > nota_5){
-        System.out.println(" ");
-        System.out.println("Informe: ");
-        System.out.println("        --> Asignatura con mejor nota: Ciencias Naturales ");
-        System.out.println("        --> Asignatura con menor nota: ");
-        System.out.println("        --> Promedio de notas: "+promedio);
-        System.out.println("        --> Debió obtener una nota de  en para aprobar el periodo.");
-    }else if(promedio < 3 & nota_5 > nota_1 & nota_5 > nota_2 & nota_5 > nota_3 & nota_5 > nota_4){
-        System.out.println(" ");
-        System.out.println("Informe: ");
-        System.out.println("        --> Asignatura con mejor nota: Deportes ");
-        System.out.println("        --> Asignatura con menor nota: ");
-        System.out.println("        --> Promedio de notas: "+promedio);
-        System.out.println("        --> Debió obtener una nota de  en para aprobar el periodo.");
-    
-    
-    
-    }else if(promedio > 3 & nota_1 > nota_2 & nota_1 > nota_3 & nota_1 > nota_4 & nota_1 > nota_5){
-        System.out.println(" ");
-        System.out.println("Informe: ");
-        System.out.println("        --> Asignatura con mejor nota: Matemáticas ");
-        System.out.println("        --> Asignatura con menor nota: ");
-        System.out.println("        --> Promedio de notas: "+promedio);
-        System.out.println("        --> Felicidades, aprobaste el periodo.");
-    }else if(promedio > 3 & nota_2 > nota_1 & nota_2 > nota_3 & nota_2 > nota_4 & nota_2 > nota_5){
-        System.out.println(" ");
-        System.out.println("Informe: ");
-        System.out.println("        --> Asignatura con mejor nota: Español ");
-        System.out.println("        --> Asignatura con menor nota: ");
-        System.out.println("        --> Promedio de notas: "+promedio);
-        System.out.println("        --> Felicidades, aprobaste el periodo.");
-    }else if(promedio > 3 & nota_3 > nota_1 & nota_3 > nota_2 & nota_3 > nota_4 & nota_3 > nota_5){
-        System.out.println(" ");
-        System.out.println("Informe: ");
-        System.out.println("        --> Asignatura con mejor nota: Inglés ");
-        System.out.println("        --> Asignatura con menor nota: ");
-        System.out.println("        --> Promedio de notas: "+promedio);
-        System.out.println("        --> Felicidades, aprobaste el periodo.");
-    }else if(promedio > 3 & nota_4 > nota_1 & nota_4 > nota_2 & nota_4 > nota_3 & nota_4 > nota_5){
-        System.out.println(" ");
-        System.out.println("Informe: ");
-        System.out.println("        --> Asignatura con mejor nota: Ciencias Naturales ");
-        System.out.println("        --> Asignatura con menor nota: ");
-        System.out.println("        --> Promedio de notas: "+promedio);
-        System.out.println("        --> Felicidades, aprobaste el periodo.");
-    }else if(promedio > 3 & nota_5 > nota_1 & nota_5 > nota_2 & nota_5 > nota_3 & nota_5 > nota_4){
-        System.out.println(" ");
-        System.out.println("Informe: ");
-        System.out.println("        --> Asignatura con mejor nota: Deportes ");
-        System.out.println("        --> Asignatura con menor nota: ");
-        System.out.println("        --> Promedio de notas: "+promedio);
-        System.out.println("        --> Felicidades, aprobaste el periodo.");
 
+    System.out.println("         ");
+    System.out.println("Tu nota de Matematicas es: "+nota_1);
+    System.out.println("Tu nota de Español es: "+nota_2);
+    System.out.println("Tu nota de Inglés es: "+nota_3);
+    System.out.println("Tu nota de Ciencias Naturales es: "+nota_4);
+    System.out.println("Tu nota de Deportes es: "+nota_5);
+    System.out.println("         ");
+    System.out.println("Este es tu Informe: ");
+
+    if(nota_1 > nota_2 & nota_1 > nota_3 & nota_1 > nota_4 & nota_1 > nota_5){
+        System.out.println("Asignatura con mejor nota: Matematicas");
     }
+
+    if(nota_2 > nota_1 & nota_2 > nota_3 & nota_2 > nota_4 &nota_2 > nota_5){
+        System.out.println("Asignatura con mejor nota: Espanol");
+    }
+
+    if(nota_3 > nota_1 & nota_3 > nota_2 & nota_3 > nota_4 & nota_3 > nota_5){
+        System.out.println("Asignatura con mejor nota: Ingles");
+    }
+
+    if(nota_4 > nota_1 & nota_4 > nota_2 & nota_4 >nota_3 & nota_4 > nota_5){
+        System.out.println("Asignatura con mejor nota: Ciencias Naturales");
+    }
+
+    if(nota_5 >nota_1 & nota_5 > nota_2 & nota_5 > nota_3 & nota_5 > nota_4){
+        System.out.println("Asignatura con mejor nota: Deportes");
+    }
+ 
+    if(nota_1 <nota_2 & nota_1 < nota_3 & nota_1 < nota_4 & nota_1 < nota_5){
+        System.out.println("Asignatura con peor nota: Matematicas");
+    }
+
+    if(nota_2 < nota_1 &nota_2 < nota_3 &nota_2 < nota_4 &nota_2 < nota_5){
+        System.out.println("Asignatura con peor nota: Espanol");
+    }
+
+    if(nota_3 < nota_1 & nota_3 <nota_2 & nota_3 < nota_4 & nota_3 < nota_5){
+        System.out.println("Asignatura con peor nota: Ingles");
+    }
+
+    if(nota_4 < nota_1 & nota_4 < nota_3 & nota_4 <nota_2 & nota_4 < nota_5){
+        System.out.println("Asignatura con peor nota: Ciencias Naturales");
+    }
+
+    if(nota_5 <nota_2 & nota_5 < nota_3 & nota_5 < nota_4 & nota_5 < nota_1){
+        System.out.println("Asignatura con peor nota: Deportes");
+    }
+
+
+    System.out.println("Promedio de notas: "+promedio);
+
+    if(promedio <3 & nota_1 < nota_2 & nota_1 < nota_3 & nota_1 < nota_4 & nota_1 < nota_5){
+        System.out.println("Debio obtener una nota de:--- en Matematicas para aprobar el periodo");
+    }else if(promedio <3 & nota_2 < nota_1 & nota_2 < nota_3 & nota_2 < nota_4 & nota_2 < nota_5){
+        System.out.println("Debio obtener una nota de:--- en Español aprobar el periodo");
+    }else if(promedio <3 & nota_3 < nota_1 & nota_3 < nota_2 & nota_3 < nota_4 & nota_3 < nota_5){
+        System.out.println("Debio obtener una nota de:--- en Inglés aprobar el periodo");
+    }else if(promedio <3 & nota_4 < nota_1 & nota_4 < nota_2 & nota_4 < nota_3 & nota_4 < nota_5){
+        System.out.println("Debio obtener una nota de:--- en Ciencias Naturales aprobar el periodo");
+    }else if(promedio <3 & nota_5 < nota_1 & nota_5 < nota_2 & nota_5 < nota_3 & nota_5 < nota_4){
+        System.out.println("Debio obtener una nota de:--- en Deportes aprobar el periodo");
+    }
+    
+   
+    
     }
 }
