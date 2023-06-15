@@ -21,6 +21,5 @@ public class Ejercicio01{
         double promedio = suma_notas / cantidad_notas ;
         System.out.println("Este es el promedio de las notas: "+ promedio);
 
-
     }
 }

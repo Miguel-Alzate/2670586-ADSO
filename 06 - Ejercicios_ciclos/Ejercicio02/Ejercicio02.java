@@ -33,6 +33,5 @@ public class Ejercicio02{
         System.out.println("Este es el total de creditos: "+ suma_creditos);
         System.out.println("Este es el promedio de las notas: "+ promedio);
 
-
     }
 }
