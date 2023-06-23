@@ -4,10 +4,9 @@ public class Ejercicio01{
     Scanner entrada = new Scanner(System.in);
 
     int contador = 1;
-    double numero_aleatorio = 0;
+    int numero_aleatorio = 0;
     int producto = 0;
     int numero_final = 0;
-    int sumaxd = 0;
 
     System.out.print("Ingresa un número entre 1 y 6: ");
     int num = entrada.nextInt();
@@ -18,18 +17,14 @@ public class Ejercicio01{
     if(num >= 1 && num < 7){
         while(contador <= num){
             
-            numero_aleatorio = Math.random() * 9;
+            numero_aleatorio = (int) (Math.random() * 10);
 
             contador = contador + 1;
             
-            numero_final = (int) Math.floor(numero_aleatorio);
-
-            System.out.print(numero_final);
-
-            producto = producto + numero_final;
-            
+            numero_final = (numero_final * 10) + numero_aleatorio;
         }
-            System.out.println(" ");
+            producto = numero_final *2;
+            System.out.println("El número construido es: "+numero_final);
             System.out.println("Resultado producto: "+producto);
     }else{
         System.out.println("Ingresa un número VALIDO entre 1 y 6.");
