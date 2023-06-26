@@ -28,7 +28,7 @@ public class Ejercicio20{
         int resultado = digito_1+digito_2+digito_3+digito_4+digito_5;
         System.out.println("La suma de los digitos es: "+resultado);
 
-
+        //Hola profe :D
 
     }
 
