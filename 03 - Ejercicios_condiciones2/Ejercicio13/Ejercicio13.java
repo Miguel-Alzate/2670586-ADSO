@@ -15,6 +15,6 @@ public class Ejercicio13{
         System.out.println("Señor usuario, el número " +num+ " NO es divisible por 2, 3 y 5 al mismo tiempo.");
     }
 
-
+        //Recuerde descansar profe
     }
 }
