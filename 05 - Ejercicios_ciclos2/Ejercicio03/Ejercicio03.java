@@ -12,26 +12,41 @@ public class Ejercicio03{
     System.out.print("Ingrese numero N: ");
     num = entrada.nextInt();
 
-    while(contador <= num){
+    System.out.println("Primos Aleatorios: ");
+
+    while(contador < num){
 
 
         
+
         
-        for(i = 1; contador <= num_aleatorio; i=i+1){
-        num_aleatorio = (int) Math.floor(Math.random() * 100 + 1);
+        for(contador = 1; contador <= num; i=i+1){
+        num_aleatorio = (int) Math.floor(Math.random() * 1000 + 1);
+       
+            int divisores = 0;
+            for(i = 1; i<=num_aleatorio ; i++){
+                if(num_aleatorio % i == 0){
+                    divisores = divisores + 1;
+                }
+                }
+                if(divisores == 2){
+                    System.out.println("Primo "+contador_numero+" Generado: "+num_aleatorio);
+                    contador_numero = contador_numero + 1;
+                    contador++;
+                }
+        }
+       
        
 
-        if(num_aleatorio % i == 0){
-            System.out.println("Primo "+contador_numero+ " Generado -> "+num_aleatorio);
-        }
-        contador_numero = contador_numero + 1;
-       
-
         
         }
         
-    }
+    
 
+      
+
+
+    
 
 
     }
