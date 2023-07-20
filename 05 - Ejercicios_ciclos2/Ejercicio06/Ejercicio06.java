@@ -13,6 +13,12 @@ public class Ejercicio06 {
     System.out.print("Ingrese numero M: ");
     num_m = entrada.nextInt();
 
+
+    if(num>num_m){
+        System.out.println("Ingrese valores válidos");
+    }
+    
+
     while (num <= num_m){
 
         System.out.println("Factorial de "+num+ " ("+num+ "!): ");
@@ -26,8 +32,12 @@ public class Ejercicio06 {
                 contador_1 = contador_1 + 1;
 
             }
-            System.out.println(" = "+factorial);
-            System.out.println("  ");
+            if(num == 1 && num_m == 1){
+                System.out.println(" x 1 = 1");
+            }else{
+                System.out.println(" = "+factorial);
+                System.out.println("  ");
+            }
         num = num + 1;
         contador_1 = 1;
         factorial = 1;
