@@ -9,7 +9,7 @@ public class Ejercicio02{
 
         int arreglo [] = new int [num];
 
-
+            int no_primo = 0;
             int primo = 2;
             int contador = 0;
 
