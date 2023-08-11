@@ -2,7 +2,8 @@ import java.util.Scanner;
 public class Ejercicio07{
     public static void main(String[] args){
         Scanner teclado = new Scanner(System.in);
-
+        
+        //hola
         int tamaño = 0;
         int num_aleatorio = 0;
         int contador = 1;
