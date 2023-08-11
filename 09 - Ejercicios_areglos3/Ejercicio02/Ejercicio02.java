@@ -4,6 +4,8 @@ public class Ejercicio02{
         Scanner teclado = new Scanner(System.in);
         Scanner nueva = new Scanner(System.in);
 
+        //m
+
         int bandera1 = 0;
         String nombre;
         int tamaño = 0;
