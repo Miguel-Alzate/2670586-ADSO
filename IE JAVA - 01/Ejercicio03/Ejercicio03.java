@@ -1,40 +1,43 @@
 import java.util.Scanner;
-public class Ejercicio03{
+public class Ejercicio03 {
     public static void main(String[] args){
         Scanner teclado = new Scanner(System.in);
 
-        int contador = 1;
-        int num_aleatorio = 0;
-        int num_aleatorio2 = 0;
-        int n = 0;
-        int num_bombas = 0;
-        int bombas = 2;
-  
-        System.out.print("Ingresa el tamaño del arreglo: ");
-        n = teclado.nextInt();
 
-        System.out.print("Ingresa la cantidad de 'bombas': ");
-        num_bombas = teclado.nextInt();
+        System.out.print("Ingrese el tamaño del arreglo: ");
+        int tamaño = teclado.nextInt();
 
+        int arreglo [] = new int[tamaño];
 
-        int arreglo [] = new int [n];
+        System.out.print("Ingrese la cantidad de bombas: ");
+        int num_bombas = teclado.nextInt();
 
-        for(int i = 0; i < num_bombas; i++){
-           num_aleatorio = (int) Math.floor(Math.random() * (n-1) + 1);
-           arreglo[num_aleatorio] = 2;
+        for (int i = 0; i < num_bombas; i++) {
+            int pos_bombas = (int) (Math.random() * tamaño);
+            while (arreglo[pos_bombas] == 1) {
+                pos_bombas = (pos_bombas + 1) % tamaño;
+            }
+            arreglo[pos_bombas] = 1;
         }
 
-    //xd
-        
-
-        System.out.print("Arreglo y sus bombas: ");
-        
-        for(int i = 0; i < arreglo.length; i++){
-            System.out.print(arreglo[i]);
-        
+        int[] area_afectada_bombas = new int[tamaño];
+        for (int i = 0; i < tamaño; i++) {
+            if (arreglo[i] == 1) {
+                area_afectada_bombas[i] = 1;
+                if (i > 0) area_afectada_bombas[i - 1] = 2;
+                if (i < tamaño - 1) area_afectada_bombas[i + 1] = 2;
+            }
+        }
+        System.out.println("Área afectada:");
+        for (int i = 0; i < tamaño; i++) {
+            System.out.print(area_afectada_bombas[i] + " ");
         }
 
-
-     
+    
     }
 }
+
+
+
+
+

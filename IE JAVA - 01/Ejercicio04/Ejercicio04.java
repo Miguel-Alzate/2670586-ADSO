@@ -1,7 +1,7 @@
 import java.util.Scanner;
 public class Ejercicio04 {
-    public static void main(String[] args) {
-        Scanner entrada = new Scanner(System.in);
+    public static void main(String[] args){
+        Scanner teclado = new Scanner(System.in);
 
         int c_parada = 0;
         double contador_kilometros = 0.0;
@@ -18,17 +18,15 @@ public class Ejercicio04 {
         System.out.println("");
 
         System.out.print("Ingrese la ciudad de origen con su número correspondiente: ");
-        int c_origen = entrada.nextInt();
+        int c_origen = teclado.nextInt();
 
         System.out.print("Ingrese la cantidad de paradas que hará: ");
-        int paradas = entrada.nextInt();
-
-        
+        int paradas = teclado.nextInt();
 
         for (int i = 1; i <= paradas; i++) {
 
-            System.out.print("Ingrese la ciudad " + i + " de parada(numero): ");
-            c_parada = entrada.nextInt();
+            System.out.print("Ingrese la ciudad " + i + " de parada (numero): ");
+            c_parada = teclado.nextInt();
 
             double kilometros_recorridos = 0.0;
 
@@ -104,6 +102,21 @@ public class Ejercicio04 {
             
             contador_kilometros = contador_kilometros + kilometros_recorridos; 
             c_origen = c_parada; 
+            if(c_parada == 1){
+                System.out.print("Mistrató: ");
+            }
+            if(c_parada == 2){
+                System.out.print("Pueblo Rico: ");
+            }
+            if(c_parada == 3){
+                System.out.print("Quinchía: ");
+            }
+            if(c_parada == 4){
+                System.out.print("Santa Rosa De Cabal: ");
+            }
+            if(c_parada == 5){
+                System.out.print("Santurario: ");
+            }
             System.out.println(kilometros_recorridos+"Km");
 
         }

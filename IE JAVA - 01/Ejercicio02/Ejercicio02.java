@@ -1,14 +1,13 @@
 import java.util.Scanner;
-
 public class Ejercicio02 {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+    public static void main(String[] args){
+        Scanner teclado = new Scanner(System.in);
 
         int n = 0;
         int valor = 1;
 
         System.out.print("Ingrese un número N: ");
-        n = scanner.nextInt();
+        n = teclado.nextInt();
 
         int arreglo [][]  = new int[n][n];
 
