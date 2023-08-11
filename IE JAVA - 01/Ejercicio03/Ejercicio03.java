@@ -24,7 +24,7 @@ public class Ejercicio03{
            arreglo[num_aleatorio] = 2;
         }
 
-
+    //xd
         
 
         System.out.print("Arreglo y sus bombas: ");
