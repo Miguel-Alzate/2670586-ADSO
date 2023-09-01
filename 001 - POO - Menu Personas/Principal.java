@@ -37,7 +37,7 @@ public class Principal{
 			System.out.println("|   10: Promedio de altura.           |");	
 			System.out.println("|   11: Salir.                        |");
 			System.out.println("+-------------------------------------+");
-			System.out.print("=> Ingrese una opcion (1 al 5): ");
+			System.out.print("=> Ingrese una opcion (1 al 11): ");
 			opcion = entrada_numero.nextInt();
 
 			if (opcion == 1) {
