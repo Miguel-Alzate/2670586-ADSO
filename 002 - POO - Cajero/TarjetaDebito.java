@@ -25,12 +25,12 @@ public class TarjetaDebito{
 
     public void imprimirDetalle(){
         System.out.println("---------------------------------------");
-        System.out.println("  nombrePropietario: "+nombrePropietario);
-        System.out.println("  numeroTarjeta: "+numeroTarjeta);
-        System.out.println("  nombreBanco: "+nombreBanco);
-        System.out.println("  cantidadDinero: "+cantidadDinero);
-        System.out.println("  clave: "+clave);
-        System.out.println("  estado: "+estado);
+        System.out.println("  Propietario: "+nombrePropietario);
+        System.out.println("  Tarjeta: "+numeroTarjeta);
+        System.out.println("  Banco: "+nombreBanco);
+        System.out.println("  Dinero: "+cantidadDinero);
+        System.out.println("  Clave: "+clave);
+        System.out.println("  Estado: "+estado);
         System.out.println("  Historial de transacciones: ");
 
         for(int i = 0; i < TransaccionesTarjeta.length; i++){

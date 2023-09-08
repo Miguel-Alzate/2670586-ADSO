@@ -46,13 +46,13 @@ public class CajeroElectronico{
 
     public void imprimirDetalle(){
         System.out.println("---------------------------------------");
-        System.out.println("  capacidadTotal: "+capacidadTotal);
-        System.out.println("  dineroDisponible: "+dineroDisponible);
+        System.out.println("  Total: "+capacidadTotal);
+        System.out.println("  Disponible: "+dineroDisponible);
         System.out.println("  cant_10: "+cant_10);
         System.out.println("  cant_20: "+cant_20);
         System.out.println("  cant_50: "+cant_50);
         System.out.println("  cant_100: "+cant_100);
-        System.out.println("  nombreBanco: "+nombreBanco);
+        System.out.println("  Banco: "+nombreBanco);
         System.out.println("  usuarioAdmin: "+usuarioAdmin);
         System.out.println("  claveAdmin: "+claveAdmin);
         System.out.println("  Historial de transacciones: ");
