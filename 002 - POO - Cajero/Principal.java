@@ -6,21 +6,24 @@ public class Principal{
         Scanner entrada_texto = new Scanner(System.in);
         Scanner entrada_numero = new Scanner(System.in);
 
-        CajeroElectronico cajero_01= new CajeroElectronico(500,250,5,10,20,2,"Banco popular","adso123","Admin pro");
-
-        cajero_01.imprimirDetalle();
-
-        CajeroElectronico cajero_02 = new CajeroElectronico(150000000, "Davivienda","adso45321","1234");
+        CajeroElectronico cajero_02 = new CajeroElectronico(150000000, "Davivienda","adso54321","54321");
+        cajero_02.abastecerCajero(1000, 1000, 500, 500); 
+        cajero_02.abastecerCajero(2000, 1000, 1000, 2000); 
         cajero_02.imprimirDetalle();
 
-        cajero_02.abastecerCajero(1000, 1000, 500, 500);
+        TarjetaDebito tarjeta01 = new TarjetaDebito("MIGUEL ALZATE", "0001 0001 0001 0001", "Davivienda", 0, 450000, "2299");
+        cajero_02.consignarDineroaTarjeta(tarjeta01, "2299", 0, 0, 0, 10);
+
         cajero_02.imprimirDetalle();
 
-        TarjetaDebito tarjeta_01 = new TarjetaDebito("Pepe", "1435 5675 2325 1673", "Banco popular", 1500, 500, "0414", "ACTIVA");
-        TarjetaDebito tarjeta_02 = new TarjetaDebito("Carlos", "6741 1245 5742 8423", "Davivienda", 1500, 500, "2311", "ACTIVA");
 
-        tarjeta_01.imprimirDetalle();
-        tarjeta_02.imprimirDetalle();
+        
+
+
+      
+        
+
+        
 
     }
 }
