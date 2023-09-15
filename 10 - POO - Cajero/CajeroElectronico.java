@@ -175,5 +175,101 @@ public class CajeroElectronico{
         }
     }
 
-   
+    public void retirarDineroTarjeta(TarjetaDebito tarjeta, String clave, int cant_10, int cant_20, int cant_50, int cant_100) {
+        int monto = (10000*cant_10) + (20000*cant_20) + (50000*cant_50) + (100000*cant_100);
+  
+        if (tarjeta.validarClave(clave)){
+          
+            if(tarjeta.validarEstadoActiva()){
+             
+                if(monto > 0){
+                  
+                    if(dineroDisponible+monto <= capacidadTotal){
+                        if(tarjeta.getCantidadRetiro() > monto){
+                            tarjeta.disminuirSaldo(monto, clave);
+                            dineroDisponible -= monto;
+                            this.cant_10 -= cant_10;
+                            this.cant_20 -= cant_20;
+                            this.cant_50 -= cant_50;
+                            this.cant_100 -= cant_100;
+
+                            System.out.println(" ======> REALIZADO - RETIRAR DINERO <======");
+                            registrarTransaccion(" RETIRO", tarjeta.getNumero(), monto, "OK");
+                        }else{
+                            System.out.println("======> ERROR MONTO SUPERIOR A SALDO EN TARJETA - RETIRAR DINERO <======");
+                            registrarTransaccion(" RETIRO", tarjeta.getNumero(), monto, "ERROR MONTO SUPERIOR");
+                        }
+                    }else{
+                        System.out.println("======> ERROR MONTO SUPERIOR - RETIRAR DINERO <======");
+                        registrarTransaccion(" RETIRO", tarjeta.getNumero(), monto, "ERROR MONTO SUPERIOR");
+                    }
+                }else{
+                    System.out.println("======> ERROR MONTO INFERIOR - RETIRAR DINERO <======");
+                    registrarTransaccion(" RETIRO", tarjeta.getNumero(), monto, "ERROR MONTO INFERIOR");
+                }
+            }else{
+                System.out.println("======> ERROR ESTADO - RETIRAR DINERO <======");
+                registrarTransaccion(" RETIRO", tarjeta.getNumero(), monto, "ERROR ESTADO");
+            }
+        }else{
+            System.out.println("======> ERROR PASSWORD - RETIRAR DINERO <======");
+            registrarTransaccion(" RETIRO", tarjeta.getNumero(), monto, "ERROR PASSWORD");
+        }
+    }
+
+    public void verHistorialTarjeta(String clave, TarjetaDebito tarjeta){
+        if (tarjeta.validarClave(clave)){
+            if(tarjeta.validarEstadoActiva()){
+                tarjeta.verHistorial(clave);
+                System.out.println(" ======> REALIZADO - HISTORIAL TARJETA <======");
+                registrarTransaccion(" HISTORIAL", tarjeta.getNumero(), 0, "OK");
+            }else{
+                System.out.println("======> ERROR ESTADO - VER HISTORIAL <======");
+                registrarTransaccion(" HISTORIAL", tarjeta.getNumero(), 0, "ERROR ESTADO");
+            }
+
+        }else{
+            System.out.println("======> ERROR PASSWORD - VER HISTORIAL <======");
+            registrarTransaccion(" HISTORIAL", tarjeta.getNumero(), 0, "ERROR PASSWORD");
+        }
+    }
+
+    public void consultarSaldoTarjeta(String clave, TarjetaDebito tarjeta){
+        if (tarjeta.validarClave(clave)){
+            if(tarjeta.validarEstadoActiva()){
+                System.out.println("SALDO ACTUAL DE LA TARJETA: "+tarjeta.getSaldo(clave));
+                System.out.println(" ======> REALIZADO - CONSULTA SALDO <======");
+                registrarTransaccion(" CONSULTASALDO", tarjeta.getNumero(), 0, "OK");
+            }else{
+                System.out.println("======> ERROR ESTADO - CONSULTA SALDO <======");
+                registrarTransaccion(" CONSULTASALDO", tarjeta.getNumero(), 0, "ERROR ESTADO");
+            }
+
+        }else{
+            System.out.println("======> ERROR PASSWORD - CONSULTA SALDO <======");
+            registrarTransaccion(" CONSULTASALDO", tarjeta.getNumero(), 0, "ERROR PASSWORD");
+        }
+    }
+    
+    public void cambiarClave(String clave_actual, String clave_cambio, CajeroElectronico cajero){
+        if (cajero.getClave(clave_actual)){
+            cajero.setClave(clave_cambio);
+        }else{
+            System.out.println("======> ERROR PASSWORD - CAMBIO DE CLAVE <======");
+            registrarTransaccion(" CAMBIO CLAVE", "0000 0000 0000 0000", 0, "ERROR PASSWORD");
+        }
+    }
+
+    public boolean getClave(String pass){
+        if (pass.equals(claveAdmin)){
+            registrarTransaccion(" CAMBIO DE CLAVE","0000 0000 0000 0000", 0, "OK");
+            return true;
+        }else{
+            registrarTransaccion(" CAMBIO DE CLAVE","0000 0000 0000 0000", 0, "ERROR");
+            return false;
+        }
+    }
+    public void setClave(String clave_cambio){
+        claveAdmin = clave_cambio;
+    }
 }

@@ -71,17 +71,17 @@ public class TarjetaDebito{
             if(monto > 0){
                 dineroDisponible += monto;
                 System.out.println("TRANSACCION EXITOSA EN AUMENTO DE SALDO");
-                registrarTransaccion("AUMENTOSALDO", monto, "OK");
+                registrarTransaccion(" AUMENTOSALDO", monto, "OK");
                 return true;
             }else{
                 System.out.println("ERROR EN MONTO INGRESADO");
-                registrarTransaccion("AUMENTOSALDO", monto, "ERROR");
+                registrarTransaccion(" AUMENTOSALDO", monto, "ERROR");
                 return false;
             }
 
         }else{
             System.out.println("ERROR EN PASSWORD - AUMENTO DE SALDO");
-            registrarTransaccion("AUMENTOSALDO", monto, "ERROR");
+            registrarTransaccion(" AUMENTOSALDO", monto, "ERROR");
             return false;
         }
     }
@@ -91,33 +91,33 @@ public class TarjetaDebito{
             if(monto > 0 && monto <= cantidadRetiro){
                 if (monto <= dineroDisponible){
                     dineroDisponible -= monto;
-                    System.out.println("TRANSACCION EXITOSA EN AUMENTO DE SALDO");
-                    registrarTransaccion("DISMINUCIONSALDO", monto, "OK");
+                    System.out.println("TRANSACCION EXITOSA EN DISMINUCION DE SALDO");
+                    registrarTransaccion(" DISMINUCIONSALDO", monto, "OK");
                     return true;
                 }else{
                     System.out.println("ERROR EN MONTO INGRESADO SUPERA DINERO EN TARJETA");
-                    registrarTransaccion("DISMINUCIONSALDO", monto, "ERROR");
+                    registrarTransaccion(" DISMINUCIONSALDO", monto, "ERROR");
                     return false;
                 }
             }else{
                 System.out.println("ERROR EN MONTO INGRESADO - FUERA DE RANGO");
-                registrarTransaccion("DISMINUCIONSALDO", monto, "ERROR");
+                registrarTransaccion(" DISMINUCIONSALDO", monto, "ERROR");
                 return false;
             }
 
         }else{
             System.out.println("ERROR EN PASSWORD - DISMINUCION DE SALDO");
-            registrarTransaccion("DISMINUCIONSALDO", monto, "ERROR");
+            registrarTransaccion(" DISMINUCIONSALDO", monto, "ERROR");
             return false;
         }
     }
 
     public int getSaldo(String pass){
         if(pass.equals(clave)){
-            registrarTransaccion("CONSULTASALDO", 0, "OK");
+            registrarTransaccion(" CONSULTASALDO", 0, "OK");
             return dineroDisponible;
         }else{
-            registrarTransaccion("CONSULTASALDO", 0, "ERROR");
+            registrarTransaccion(" CONSULTASALDO", 0, "ERROR");
             return -1;
         }
 
@@ -125,10 +125,10 @@ public class TarjetaDebito{
 
     public boolean validarClave(String pass){
         if (pass.equals(clave)){
-            registrarTransaccion("VALIDARCLAVE", 0, "OK");
+            registrarTransaccion(" VALIDARCLAVE", 0, "OK");
             return true;
         }else{
-            registrarTransaccion("VALIDARCLAVE", 0, "ERROR");
+            registrarTransaccion(" VALIDARCLAVE", 0, "ERROR");
             return false;
         }
     }
@@ -143,5 +143,9 @@ public class TarjetaDebito{
 
     public String getNumero(){
         return numeroTarjeta;
+    }
+
+    public int getCantidadRetiro(){
+        return cantidadRetiro;
     }
 }
