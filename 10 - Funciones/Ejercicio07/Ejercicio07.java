@@ -4,6 +4,8 @@ public class Ejercicio07{
     //7. Llenado de un arreglo: Implementa una función que reciba un arreglo de números y devuelva el arreglo lleno con números aleatorios.
     public static void main(String[] args){
         int arreglo [] = new int [10];
+        Scanner entrada_texto = new Scanner(System.in);
+        Scanner entrada_numeros = new Scanner(System.in);
 
         Ejercicio07.llenarArreglo(arreglo);
 
