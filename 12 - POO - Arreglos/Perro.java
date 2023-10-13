@@ -1,12 +1,12 @@
 public class Perro{
 
     //Atributos:
-    private String nombre;
-    private String propietario;
-    private int edad;
-    private String raza;
-    private double peso;
-    private int energia;
+    public String nombre;
+    public String propietario;
+    public int edad;
+    public String raza;
+    public double peso;
+    public int energia;
 
 
     //Constructor:
@@ -136,7 +136,7 @@ public class Perro{
             }else if(energia >= 50){
                 System.out.println("Tu perro bajo de: "+auxiliar+"kg a: "+peso+"kg");
                 System.out.println("Energía actual: "+energia+"%");
-                System.out.println("Tu perro le resta suficiente energia para seguir caminando.");
+                System.out.println("Tu perro le. resta suficiente energia para seguir caminando.");
             }else if(energia >= 75){
                 System.out.println("Tu perro bajo de: "+auxiliar+"kg a: "+peso+"kg");
                 System.out.println("Energía actual: "+energia+"%");
