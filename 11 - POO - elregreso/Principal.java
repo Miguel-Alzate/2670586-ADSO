@@ -2,12 +2,14 @@ public class Principal{
     public static void main(String[] args){
 
         Perro perro_01 = new Perro("Pecas", "María", 108, "Boxer", 30.5, 40);
-        Perro perro_02 = new Perro("Manchas", "Lorena", 2, "Weimaraner", 4.5, 80);
-
-        
         perro_01.comer(800);
         perro_01.imprimirDetalle();
 
+        perro_01.caminar(4000);
+        perro_01.imprimirDetalle();
+
+        perro_01.dormir(12);
+        perro_01.imprimirDetalle();
 
     }
 }
