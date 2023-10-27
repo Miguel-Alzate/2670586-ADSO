@@ -1,23 +1,27 @@
 public class Curso{
 
     //Atributos
-    String codigo;
+    int codigo;
     String nombre;
     String area_conocimiento;
     int duracion_curso;
     String lista_temas [];
 
-    //Constructor
-    public Curso (String dato1, String dato2, String dato3, int dato4){
+    
+
+    //Constructor 
+    public Curso (int dato1, String dato2, String dato3, int dato4, String [] dato5){
         codigo = dato1;
         nombre = dato2;
         area_conocimiento = dato3;
         duracion_curso = dato4;
-        lista_temas = new String [100];
+        lista_temas = dato5;
+
+
     }
 
     //Getters
-    public String getCodigo(){
+    public int getCodigo(){
         return codigo;
     }
 
@@ -33,8 +37,12 @@ public class Curso{
         return duracion_curso;
     }
 
+    public String [] getTemas(){
+        return lista_temas;
+    }
+
     //Setters
-    public void setCodigo(String dato){
+    public void setCodigo(int dato){
         codigo = dato;
     }
 
@@ -69,4 +77,25 @@ public class Curso{
         System.out.println("|----------------------------------------------------|");
     }
 
+    public void editarInformacionCurso(String dato1, String dato2, int dato3){
+        nombre = dato1;
+        area_conocimiento = dato2;
+        duracion_curso = dato3;
+    }
+
+    public String listarCursos(){
+        String texto = "-- "+codigo+" -- "+nombre+" -- "+duracion_curso+ " hrs --";
+        return texto;
+    }
+
+    public void agregarTemasCurso(String nuevo_Tema) {
+        
+        for (int i = 0; i < lista_temas.length; i++) {
+            if (lista_temas[i] == null) {
+                lista_temas[i] = nuevo_Tema;
+                System.out.println("PRUEBA");
+                break;
+            }
+        }
+    }
 }
