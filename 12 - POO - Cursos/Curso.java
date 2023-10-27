@@ -89,11 +89,9 @@ public class Curso{
     }
 
     public void agregarTemasCurso(String nuevo_Tema) {
-        
         for (int i = 0; i < lista_temas.length; i++) {
             if (lista_temas[i] == null) {
                 lista_temas[i] = nuevo_Tema;
-                System.out.println("PRUEBA");
                 break;
             }
         }

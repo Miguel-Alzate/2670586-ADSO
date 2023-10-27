@@ -5,6 +5,7 @@ public class Principal{
 		
 		Scanner entrada_numero = new Scanner( System.in );
 		Scanner entrada_texto = new Scanner( System.in );
+		
 
 		Curso listaCurso [] = new Curso [99];
 		int indiceCurso = 0;
