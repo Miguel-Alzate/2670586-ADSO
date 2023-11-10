@@ -21,7 +21,7 @@ public class Factura extends JFrame{
         contenedor.setLayout(new GridBagLayout());
         contenedor.setBorder(BorderFactory.createEmptyBorder
         (20, 20, 20, 20));
-        contenedor.setBackground(new Color(204, 204, 179));
+        contenedor.setBackground(new Color(255, 255, 255));
 
         GridBagConstraints restricciones = new GridBagConstraints();
 
@@ -80,18 +80,6 @@ public class Factura extends JFrame{
         contenedor.add(btn_boton, restricciones);
         restricciones.insets = new Insets(0,0,0,0);
 
-        // JButton button = new JButton();
-        // button.setText("BOTON");
-        // button.setHorizontalAlignment(JLabel.RIGHT);
-        // restricciones.gridx = 2;
-        // restricciones.gridy = 1;
-        // restricciones.gridwidth = 1;
-        // restricciones.gridheight = 1; 
-        // restricciones.weightx = 5;
-        // restricciones.weighty = 1;
-        // restricciones.fill = GridBagConstraints.NONE;
-        // contenedor.add(button, restricciones);
-
         JLabel etq_nombre = new JLabel();
         etq_nombre.setText("NOMBRES:");
         etq_nombre.setFont(new Font("Arial", Font.BOLD, 10));
@@ -106,6 +94,20 @@ public class Factura extends JFrame{
         restricciones.insets = new Insets(1,0,2,0);
         contenedor.add(etq_nombre,restricciones);
 
+        JTextField campo_nombres = new JTextField();
+        campo_nombres.setColumns(10);
+        campo_nombres.setHorizontalAlignment(JLabel.CENTER);
+        restricciones.gridx = 1;
+        restricciones.gridy = 2;
+        restricciones.gridwidth = 2;
+        restricciones.gridheight = 1;
+        restricciones.weightx = 1;
+        restricciones.weighty = 0;
+        restricciones.fill = GridBagConstraints.NONE;
+        restricciones.insets = new Insets(1,0,0,6);
+        contenedor.add(campo_nombres, restricciones);
+        restricciones.insets = new Insets(0,0,0,0);
+
         JLabel etq_direccion = new JLabel();
         etq_direccion.setText("DIRECCION:");
         etq_direccion.setFont(new Font("Arial", Font.BOLD, 10));
@@ -119,6 +121,20 @@ public class Factura extends JFrame{
         restricciones.fill = GridBagConstraints.BOTH;
         restricciones.insets = new Insets(1,0,2,0);
         contenedor.add(etq_direccion,restricciones);
+
+        JTextField campo_direccion = new JTextField();
+        campo_direccion.setColumns(10);
+        campo_direccion.setHorizontalAlignment(JLabel.CENTER);
+        restricciones.gridx = 1;
+        restricciones.gridy = 3;
+        restricciones.gridwidth = 2;
+        restricciones.gridheight = 1;
+        restricciones.weightx = 1;
+        restricciones.weighty = 0;
+        restricciones.fill = GridBagConstraints.NONE;
+        restricciones.insets = new Insets(1,0,0,6);
+        contenedor.add(campo_direccion, restricciones);
+        restricciones.insets = new Insets(0,0,0,0);
 
         JLabel etq_titulo2 = new JLabel();
         etq_titulo2.setText("DATOS VENDEDOR");
@@ -189,6 +205,20 @@ public class Factura extends JFrame{
         restricciones.fill = GridBagConstraints.BOTH;
         restricciones.insets = new Insets(1,0,2,0);
         contenedor.add(etq_nombre2,restricciones);
+
+        JTextField campo_nombres_vendedor = new JTextField();
+        campo_nombres_vendedor.setColumns(10);
+        campo_nombres_vendedor.setHorizontalAlignment(JLabel.CENTER);
+        restricciones.gridx = 1;
+        restricciones.gridy = 4;
+        restricciones.gridwidth = 2;
+        restricciones.gridheight = 1;
+        restricciones.weightx = 1;
+        restricciones.weighty = 0;
+        restricciones.fill = GridBagConstraints.NONE;
+        restricciones.insets = new Insets(1,0,0,6);
+        contenedor.add(campo_nombres_vendedor, restricciones);
+        restricciones.insets = new Insets(0,0,0,0);
 
         JLabel etq_titulo3 = new JLabel();
         etq_titulo3.setText("LISTA PRODUCTOS FACTURADOS:");
