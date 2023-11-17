@@ -1,0 +1,51 @@
+ //Eventos
+
+        ActionListener evento_click_registrar = new ActionListener(){
+			public void actionPerformed(ActionEvent event){
+				agregarMateria();
+			}
+		};
+		btn_registrar.addActionListener(evento_click_registrar);
+
+        ActionListener evento_click_limpiar = new ActionListener(){
+			public void actionPerformed(ActionEvent event){
+				limpiarCampos();
+                indiceItems = 0;
+			}
+		};
+		btn_limpiar.addActionListener(evento_click_limpiar);
+
+       
+
+       
+    
+    //Metodos
+    public void limpiarCampos(){
+        for (int i = 0; i < listaMaterias.length; i++) {
+            input_materia.requestFocus();
+            input_materia.setText("");
+            input_creditos.setText("");
+            input_nota.setText("");
+            listaJLabels[i].setText("");
+           
+			
+		}
+    }
+
+    public void agregarMateria(){
+        String nombre = input_materia.getText();
+        double creditos = Double.parseDouble(input_creditos.getText());
+        double nota = Double.parseDouble(input_nota.getText());
+
+        for (int i = indiceItems; i < listaMaterias.length; i++) {
+            
+			listaMaterias[i] = new Materia(nombre, creditos, nota);
+            input_materia.requestFocus();
+            input_materia.setText("");
+            input_creditos.setText("");
+            input_nota.setText("");
+            listaJLabels[i].setText(nombre+" -> Creditos: "+creditos+" -> Nota: "+nota);
+            break;
+			
+		}
+    }

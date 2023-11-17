@@ -334,17 +334,7 @@ public class Facturador extends JFrame{
 		restriccion.fill = GridBagConstraints.BOTH;
 		contPrincipal.add( input_cant_producto, restriccion );
 
-		btn_add_producto = new JButton("ADD");
-		btn_add_producto.setFocusable(false);
-		restriccion.gridy = 9;
-		restriccion.gridx = 3;
-		restriccion.gridheight = 1;
-		restriccion.gridwidth = 1;
-		restriccion.weighty = 2;
-		restriccion.weightx = 10;
-		restriccion.insets = new Insets(0, 10, 0, 10);
-		restriccion.fill = GridBagConstraints.BOTH;
-		contPrincipal.add( btn_add_producto, restriccion );
+		
 
 		contenedorItems = new JPanel();
         contenedorItems.setLayout( new GridBagLayout() );
