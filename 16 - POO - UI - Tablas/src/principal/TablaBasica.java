@@ -187,6 +187,8 @@ public class TablaBasica extends javax.swing.JFrame {
         jScrollPane1.setBackground(new java.awt.Color(255, 0, 0));
 
         tablaDatos.setBackground(new java.awt.Color(0, 153, 204));
+        tablaDatos.getTableHeader().setReorderingAllowed(false);
+        tablaDatos.getTableHeader().setBackground(new java.awt.Color(0, 153, 204));
         tablaDatos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
