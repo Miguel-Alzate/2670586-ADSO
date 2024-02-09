@@ -186,6 +186,7 @@ public class TablaBasica extends javax.swing.JFrame {
 
         jScrollPane1.setBackground(new java.awt.Color(255, 0, 0));
 
+        tablaDatos.setBackground(new java.awt.Color(0, 153, 204));
         tablaDatos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -209,23 +210,18 @@ public class TablaBasica extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tablaDatos.setEnabled(false);
         jScrollPane1.setViewportView(tablaDatos);
 
         javax.swing.GroupLayout contenedorDatosLayout = new javax.swing.GroupLayout(contenedorDatos);
         contenedorDatos.setLayout(contenedorDatosLayout);
         contenedorDatosLayout.setHorizontalGroup(
             contenedorDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contenedorDatosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1)
-                .addContainerGap())
+            .addComponent(jScrollPane1)
         );
         contenedorDatosLayout.setVerticalGroup(
             contenedorDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contenedorDatosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
