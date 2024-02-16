@@ -145,7 +145,7 @@ public class EliminarPersona extends javax.swing.JFrame {
             listaPersonas[i] = listaPersonas[i+1];
         }
         listaPersonas[listaPersonas.length-1] = null;
-        
+       
         
         ventana.imprimirPersonas();
         dispose();
