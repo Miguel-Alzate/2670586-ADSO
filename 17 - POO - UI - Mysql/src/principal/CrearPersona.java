@@ -185,7 +185,7 @@ public class CrearPersona extends javax.swing.JFrame {
             String correo = campoCorreo.getText();
 
             baseDatos.insertarPersona(cedula, nombres, apellidos, telefono, direccion, correo);
-            dispose();
+            
         }
         
     }//GEN-LAST:event_btnCrearPersonaActionPerformed
