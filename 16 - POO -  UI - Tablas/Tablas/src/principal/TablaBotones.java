@@ -22,11 +22,20 @@ public class TablaBotones extends javax.swing.JFrame {
     
     public TablaBotones() {
         listaPersonas = new Persona[100];
-        listaPersonas[0] = new Persona("108800", "Oscar", "Loaiza", "3333330", "oscar@mail.com");
-        listaPersonas[1] = new Persona("108801", "Daniel", "Garcia", "3333331", "daniel@mail.com");
-        listaPersonas[2] = new Persona("108802", "Juan", "Lopez", "3333332", "juan@mail.com");
-        listaPersonas[3] = new Persona("108803", "Maria", "Perez", "3333333", "maria@mail.com");
-        listaPersonas[4] = new Persona("108804", "Carlos", "Toro", "3333334", "carlos@mail.com");
+        listaPersonas[0] = new Persona("108800", "Miguel", "usuario01", "password01", "farmatech carrera 20");
+        listaPersonas[1] = new Persona("108801", "Cristian", "usuario02", "password02", "farmatech carrera 20");
+        listaPersonas[2] = new Persona("108802", "Pepe", "usuario03", "password03", "farmatech carrera 20");
+        listaPersonas[3] = new Persona("108803", "Roberto", "usuario04", "password04", "NO ASIGNADO");
+        listaPersonas[4] = new Persona("108804", "Jaime", "usuario05", "password05", "farmatech carrera 26");
+        listaPersonas[5] = new Persona("108805", "Daniel", "usuario06", "password06", "NO ASIGNADO");
+        listaPersonas[6] = new Persona("108806", "Carolina", "usuario07", "password07", "farmatech carrera 26");
+        listaPersonas[7] = new Persona("108807", "Jhon", "usuario08", "password08", "farmatech carrera 26");
+        listaPersonas[8] = new Persona("108808", "Gilberto", "usuario09", "password08", "farmatech carrera 26");
+        listaPersonas[9] = new Persona("108809", "Anabel", "usuario10", "password09", "NO ASIGNADO");
+        listaPersonas[10] = new Persona("108810", "Maria", "usuario11", "password10", "NO ASIGNADO");
+        listaPersonas[11] = new Persona("108811", "Fernanda", "usuario12", "password11", "NO ASIGNADO");
+        listaPersonas[12] = new Persona("108812", "Amber", "usuario13", "password12", "NO ASIGNADO");
+        listaPersonas[13] = new Persona("108813", "Heart", "usuario14", "password13", "NO ASIGNADO");
         
         initComponents();
         initAternComponents();
@@ -48,8 +57,8 @@ public class TablaBotones extends javax.swing.JFrame {
         tablaDatos.getColumnModel().getColumn(6).setCellRenderer(new ButtonRenderer());
         
         // Tamaño de Columnas
-        tablaDatos.getColumnModel().getColumn(0).setPreferredWidth(50);
-        tablaDatos.getColumnModel().getColumn(1).setPreferredWidth(150);
+        tablaDatos.getColumnModel().getColumn(0).setPreferredWidth(70);
+        tablaDatos.getColumnModel().getColumn(1).setPreferredWidth(120);
         tablaDatos.getColumnModel().getColumn(2).setPreferredWidth(150);
         tablaDatos.getColumnModel().getColumn(3).setPreferredWidth(50);
         tablaDatos.getColumnModel().getColumn(4).setPreferredWidth(150);
@@ -64,7 +73,12 @@ public class TablaBotones extends javax.swing.JFrame {
         DefaultTableCellRenderer centerRender = new DefaultTableCellRenderer();
         centerRender.setHorizontalAlignment(SwingConstants.CENTER);
         tablaDatos.getColumnModel().getColumn(0).setCellRenderer(centerRender);
+        tablaDatos.getColumnModel().getColumn(1).setCellRenderer(centerRender);
+        tablaDatos.getColumnModel().getColumn(2).setCellRenderer(centerRender);
         tablaDatos.getColumnModel().getColumn(3).setCellRenderer(centerRender);
+        tablaDatos.getColumnModel().getColumn(4).setCellRenderer(centerRender);
+        
+       
         
         // Alto de las filas
         tablaDatos.setRowHeight(25);
@@ -168,22 +182,27 @@ public class TablaBotones extends javax.swing.JFrame {
         campoDocumento.setMargin(new java.awt.Insets(2, 10, 2, 10));
 
         etqNombres.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
-        etqNombres.setText("Nombres:");
+        etqNombres.setText("Nombre:");
 
         campoNombres.setMargin(new java.awt.Insets(2, 10, 2, 10));
+        campoNombres.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoNombresActionPerformed(evt);
+            }
+        });
 
         etqApellidos.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
-        etqApellidos.setText("Apellidos:");
+        etqApellidos.setText("Usuario:");
 
         campoApellidos.setMargin(new java.awt.Insets(2, 10, 2, 10));
 
         etqTelefono.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
-        etqTelefono.setText("Telefono:");
+        etqTelefono.setText("Contraseña:");
 
         campoTelefono.setMargin(new java.awt.Insets(2, 10, 2, 10));
 
         etqCorreo.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
-        etqCorreo.setText("Correo Elec.:");
+        etqCorreo.setText("Establecimiento");
 
         campoCorreo.setMargin(new java.awt.Insets(2, 10, 2, 10));
 
@@ -202,61 +221,54 @@ public class TablaBotones extends javax.swing.JFrame {
         contenedorFormularioLayout.setHorizontalGroup(
             contenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(contenedorFormularioLayout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addGroup(contenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(116, 116, 116)
+                .addGroup(contenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(contenedorFormularioLayout.createSequentialGroup()
-                        .addGroup(contenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(etqTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(contenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(etqTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(campoTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(contenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(etqCorreo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(campoCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(30, 30, 30)
+                        .addGroup(contenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(campoCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(etqCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(31, 31, 31)
+                        .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(contenedorFormularioLayout.createSequentialGroup()
+                        .addGroup(contenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(campoDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(etqDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(contenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(etqDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(campoDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(contenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(etqNombres, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(campoNombres, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(contenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(etqApellidos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(campoApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(70, 70, 70))
+                            .addComponent(campoNombres, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(etqNombres, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(31, 31, 31)
+                        .addGroup(contenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(campoApellidos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(etqApellidos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(130, Short.MAX_VALUE))
         );
         contenedorFormularioLayout.setVerticalGroup(
             contenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(contenedorFormularioLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addGroup(contenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(contenedorFormularioLayout.createSequentialGroup()
-                        .addComponent(etqApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(campoApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(contenedorFormularioLayout.createSequentialGroup()
-                        .addComponent(etqNombres, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(campoNombres, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(contenedorFormularioLayout.createSequentialGroup()
-                        .addComponent(etqDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(campoDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(contenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(etqApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(etqNombres, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(etqDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(contenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(campoApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(campoNombres, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(campoDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(contenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(contenedorFormularioLayout.createSequentialGroup()
-                        .addComponent(etqTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(campoTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(contenedorFormularioLayout.createSequentialGroup()
-                        .addComponent(etqCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(contenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(campoCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGroup(contenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(etqCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(etqTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(contenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(campoCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(campoTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25))
         );
 
@@ -269,7 +281,7 @@ public class TablaBotones extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Documento", "Nombres", "Apellidos", "Telefono", "Correo Elec.", "", ""
+                "Documento", "Nombre", "Usuario", "Contraseña", "Establecimiento", "Asignar", "Eliminar"
             }
         ) {
             Class[] types = new Class [] {
@@ -378,6 +390,10 @@ public class TablaBotones extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void campoNombresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNombresActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoNombresActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregar;
