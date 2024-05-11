@@ -70,42 +70,6 @@
                 </div>
             </form>
         </div>
-
-  
-        <div class="collapse" id="collapseActualizar">
-            <form id="formularioActualizar">
-                <div class="row mt-5">   
-                    <div class="col-6 mb-3">
-                        <label for="nuevo_cedula" class="form-label">Nueva cedula</label>
-                        <input type="text" class="form-control" id="nuevo_cedula" name="nuevo_cedula">
-                    </div>
-                    <div class="col-6 mb-3">
-                        <label for="nuevo_nombre" class="form-label">Nuevos nombres</label>
-                        <input type="text" class="form-control" id="nuevo_nombre" name="nuevo_nombre">
-                    </div>
-                    <div class="col-6 mb-3">
-                        <label for="nuevo_apellido" class="form-label">Nuevos apellidos</label>
-                        <input type="text" class="form-control" id="nuevo_apellido" name="nuevo_apellido">
-                    </div>
-                    <div class="col-6 mb-3">
-                        <label for="nuevo_telefono" class="form-label">Nuevo teléfono</label>
-                        <input type="text" class="form-control" id="nuevo_telefono" name="nuevo_telefono">
-                    </div>
-                    <div class="col-6 mb-3">
-                        <label for="nuevo_direccion" class="form-label">Nueva dirección</label>
-                        <input type="text" class="form-control" id="nuevo_direccion" name="nuevo_direccion">
-                    </div>
-                    <div class="col-6 mb-3">
-                        <label for="nuevo_email" class="form-label">Nuevo email</label>
-                        <input type="email" class="form-control" id="nuevo_email" name="nuevo_email">
-                    </div>
-                    <div class="col-12 text-center mt-2 mb-5"> 
-                        <button type="button" onclick="actualizarPersona()" class="btn btn-success">Actualizar Persona</button>
-                    </div>
-                    
-                </div>
-            </form>
-        </div>
           
         <table class="table table-hover table-striped border mt-3" id="tablaPersonas">
             <thead class="table table-dark ">
@@ -125,6 +89,53 @@
         </table>
     </div>
 
+
+
+    <!-- Modal actualizar -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Actualizar persona</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formularioActualizar">
+                    <div class="row">   
+                        <div class="col-12 mb-3">
+                            <label for="nuevo_nombre" class="form-label">Nuevos nombres:</label>
+                            <input type="text" class="form-control" id="nuevo_nombre" name="nuevo_nombre">
+                        </div>
+                        <div class="col-12 mb-3">
+                            <label for="nuevo_apellido" class="form-label">Nuevos apellidos:</label>
+                            <input type="text" class="form-control" id="nuevo_apellido" name="nuevo_apellido">
+                        </div>
+                        <div class="col-12 mb-3">
+                            <label for="nuevo_telefono" class="form-label">Nuevo teléfono:</label>
+                            <input type="text" class="form-control" id="nuevo_telefono" name="nuevo_telefono">
+                        </div>
+                        <div class="col-12 mb-3">
+                            <label for="nuevo_direccion" class="form-label">Nueva dirección:</label>
+                            <input type="text" class="form-control" id="nuevo_direccion" name="nuevo_direccion">
+                        </div>
+                        <div class="col-12 mb-3">
+                            <label for="nuevo_email" class="form-label">Nuevo email:</label>
+                            <input type="email" class="form-control" id="nuevo_email" name="nuevo_email">
+                        </div>
+                        <div class="col-12 mb-3">
+                            <label hidden for="nuevo_cedula" class="form-label">Nueva cedula:</label>
+                            <input hidden type="text" class="form-control" id="nuevo_cedula" name="nuevo_cedula">
+                        </div>                
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button type="button" onclick="actualizarPersona()" data-bs-dismiss="modal" class="btn btn-success">Actualizar Persona</button>
+            </div>
+        </div>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>

@@ -14,7 +14,7 @@ function cargarPersonas(){
         document.getElementById("tbodyPersonas").innerHTML = "";
  
         data.forEach(persona => {
-            const fila = `
+            let fila = `
                 <tr>
                     <td>${persona.cedula}</td>
                     <td>${persona.nombres}</td>
@@ -22,7 +22,7 @@ function cargarPersonas(){
                     <td>${persona.telefono}</td>
                     <td>${persona.direccion}</td>
                     <td>${persona.email}</td>
-                    <td><button type="button" class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseActualizar" aria-expanded="false" aria-controls="collapseActualizar" onclick="cargarDatosActualizar('${persona.cedula}', '${persona.nombres}', '${persona.apellidos}', '${persona.telefono}', '${persona.direccion}', '${persona.email}')">Actualizar</button></td>
+                    <td><button type="button" class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="cargarDatosActualizar('${persona.cedula}', '${persona.nombres}', '${persona.apellidos}', '${persona.telefono}', '${persona.direccion}', '${persona.email}')">Actualizar</button></td>
                     
                 </tr>
             `;
@@ -74,7 +74,7 @@ function insertarPersona(){
         document.getElementById("direccion").value = '';
         document.getElementById("email").value = '';
 
-   
+        cargarPersonas();
         console.log('Respuesta JSON del Servidor:');
         console.log(data);
     });
@@ -95,7 +95,7 @@ function actualizarPersona() {
     }
 
     let datos = new FormData();
-    datos.append("cedula", nuevoCedula);
+    datos.append("cedula", parseInt(nuevoCedula));
     datos.append("nombres", nuevoNombres);
     datos.append("apellidos", nuevoApellidos);
     datos.append("telefono", nuevoTelefono);
