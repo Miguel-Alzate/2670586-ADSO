@@ -156,7 +156,12 @@ function eliminarPersona(){
         document.getElementById("cedulaEliminar").value = '';
         console.log('Respuesta JSON del Servidor:');
         console.log(data);
+    })
+    .catch(error => {
+        alert('La persona no ha podido ser eliminada');
+        console.error('Error al eliminar persona:', error);
     });
+
     
 }
 
