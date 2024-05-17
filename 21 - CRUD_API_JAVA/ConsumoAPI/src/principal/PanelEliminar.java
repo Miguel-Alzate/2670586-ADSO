@@ -128,7 +128,11 @@ public class PanelEliminar extends javax.swing.JPanel {
 
             String respuesta04 = consumo.consumoPOST("https://codetesthub.com/API/Eliminar.php", datosEliminar);
             System.out.println("Respuesta Eliminar: " + respuesta04);
-
+            campo_cedula.setText("");
+            btn_eliminar.setEnabled(false);
+            btn_buscar.setEnabled(true);
+            campo_cedula.enable();
+            
             AlertaCrear ventana = new AlertaCrear("Persona Eliminada");
         }
     }//GEN-LAST:event_btn_eliminarActionPerformed

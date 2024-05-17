@@ -221,6 +221,15 @@ public class PanelEditar extends javax.swing.JPanel {
             campo_direccion.setText("");
             campo_email.setText("");
             
+            campo_cedula.enable();
+            btn_editar.setEnabled(false);
+            btn_buscar.setEnabled(true);
+             campo_nombres.disable();
+            campo_apellidos.disable();
+            campo_telefono.disable();
+            campo_direccion.disable();
+            campo_email.disable();
+            
             AlertaCrear ventana = new AlertaCrear("Persona actualizada");
         }
 
