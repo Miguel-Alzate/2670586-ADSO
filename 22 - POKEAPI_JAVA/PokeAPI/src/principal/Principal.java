@@ -6,7 +6,7 @@ public class Principal {
 
     
     public static void main(String[] args) {
-        PokeAPI ventana = new PokeAPI();
+        GifWindow ventana = new GifWindow();
     }
     
 }
