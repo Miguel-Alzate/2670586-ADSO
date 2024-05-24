@@ -44,10 +44,18 @@ public class DetallePokemon extends javax.swing.JPanel {
         etqNombre.setText( this.pokemon.get("name").getAsString() );
         
         DefaultTableModel modelo = (DefaultTableModel) tablaHabilidades.getModel();
+        
+        tablaHabilidades.getTableHeader().setReorderingAllowed(false);
+        tablaHabilidades.getTableHeader().setResizingAllowed(false);
+       
+        tablaHabilidades.getColumnModel().getColumn(0).setPreferredWidth(50);
+        tablaHabilidades.getColumnModel().getColumn(1).setPreferredWidth(200);
+        tablaHabilidades.getColumnModel().getColumn(2).setPreferredWidth(250);
+        
         JsonArray habilidades = this.pokemon.getAsJsonArray("abilities");
         for (int i=0; i<habilidades.size(); i++) {
             JsonObject temp = habilidades.get(i).getAsJsonObject().getAsJsonObject("ability");
-            Object[] fila = new Object[]{ i, temp.get("name").getAsString(), temp.get("url").getAsString()};
+            Object[] fila = new Object[]{ i+1, temp.get("name").getAsString(), temp.get("url").getAsString()};
             modelo.addRow(fila);
         }
         
@@ -103,6 +111,8 @@ public class DetallePokemon extends javax.swing.JPanel {
         etqImagen.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         etqImagen.setText("jLabel1");
 
+        etqAtras.setBackground(new java.awt.Color(255, 255, 255));
+        etqAtras.setForeground(new java.awt.Color(255, 255, 255));
         etqAtras.setText("jLabel2");
         etqAtras.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -110,6 +120,8 @@ public class DetallePokemon extends javax.swing.JPanel {
             }
         });
 
+        etqSiguiente.setBackground(new java.awt.Color(255, 255, 255));
+        etqSiguiente.setForeground(new java.awt.Color(255, 255, 255));
         etqSiguiente.setText("jLabel2");
         etqSiguiente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -143,29 +155,29 @@ public class DetallePokemon extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(etqNombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 610, Short.MAX_VALUE))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(91, 91, 91)
                 .addComponent(etqAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(etqImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(etqSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(96, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(etqSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(etqNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(etqNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(etqAtras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(etqSiguiente, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
-                    .addComponent(etqImagen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(etqImagen)
+                    .addComponent(etqAtras, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
+                    .addComponent(etqSiguiente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents

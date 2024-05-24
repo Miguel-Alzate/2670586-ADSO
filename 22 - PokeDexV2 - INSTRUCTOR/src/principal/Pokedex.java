@@ -3,8 +3,12 @@ package principal;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -15,13 +19,19 @@ public class Pokedex extends javax.swing.JFrame {
     ConsumoAPI consumo;
     int pagina;
     
+    int [] lista_numeros = new int[]{1,2,3,4,5,6,7};
+    
+    
     public Pokedex() {
         this.consumo = new ConsumoAPI();
-        this.pagina = 2;
+        this.pagina = 1;
         
         initComponents();
         initAlternComponents();
         cargarPokemones();
+        
+
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -108,19 +118,31 @@ public class Pokedex extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setVisible(true);  
         
+     
     }
     
     public void cargarPokemones(){
-        int offset = (this.pagina*20)-20;
+        panelBotones.removeAll();
+        int offset = (pagina*20)-20;
         String endpoint = "https://pokeapi.co/api/v2/pokemon?offset="+offset+"&limit=20";
         String data = this.consumo.consumoGET(endpoint);
         
+     
+        
         JsonObject dataJson = JsonParser.parseString(data).getAsJsonObject();
         JsonArray results = dataJson.getAsJsonArray("results");
+        
+        panelBotones.setLayout(new GridLayout(0, 1)); 
+        
         for (int i=0; i<results.size(); i++) {
             JsonObject temp = results.get(i).getAsJsonObject();
             
             JButton btn = new JButton( temp.get("name").getAsString() );
+            btn.setContentAreaFilled(true);
+            btn.setFocusPainted(true);
+            btn.setBackground(new Color(255, 255, 255));
+            btn.setForeground(new Color(0, 0, 0));
+            btn.setFont(new Font("Arial", Font.BOLD, 14));
             panelBotones.add(btn);
             
             btn.addActionListener(new ActionListener() {
@@ -149,11 +171,88 @@ public class Pokedex extends javax.swing.JFrame {
         
         revalidate();
         repaint();
+        cargarPaginador();
     }
     
     
     public void cargarPaginador(){
+        // 
         
+        
+        panelPaginador.removeAll();
+        panelPaginador.add(Box.createHorizontalGlue());
+        
+        JButton btn_primer_pagina = new JButton("<<");
+        btn_primer_pagina.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                pagina = 1;
+                cargarPokemones();
+            }
+        });
+        
+        panelPaginador.add(btn_primer_pagina);
+        
+        JButton btn_pagina_atras = new JButton("<");
+        btn_pagina_atras.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                pagina -= 1;
+                cargarPokemones();
+            }
+        });
+        panelPaginador.add(btn_pagina_atras);
+        
+        for (int i=0; i<7; i++){
+            JButton botones = new JButton(String.valueOf(lista_numeros[i]));
+            panelPaginador.add(botones);
+            if(lista_numeros[i] == pagina){
+                botones.setBackground(Color.BLUE);
+                botones.setForeground(Color.WHITE);
+            }
+            
+            final int posicion = i;
+            
+            botones.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    pagina = lista_numeros[posicion];
+                    cargarPokemones();
+                }
+            });
+        }
+        
+        JButton btn_pagina_siguiente = new JButton(">");
+        btn_pagina_siguiente.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                pagina += 1;
+                cargarPokemones();
+            }
+        });
+        panelPaginador.add(btn_pagina_siguiente);
+        JButton btn_ultima_pagina = new JButton(">>");
+        btn_ultima_pagina.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                pagina = 66;
+                cargarPokemones();
+            }
+        });
+        panelPaginador.add(btn_ultima_pagina);
+        
+        
+        // Imprimir Boton Primer Pagina CHECK
+        // Imprimir Boton Pagina Atras CHECK
+        // Imprimir Botones de Paginas CHECK
+        // Imprimir Boton Pagina suiguiente CHECK
+        // Imprimir boton ultima pagina CHECK
+        
+        
+       
+        panelPaginador.add(Box.createHorizontalGlue());
+        repaint();
+        revalidate();
         
         
     }
