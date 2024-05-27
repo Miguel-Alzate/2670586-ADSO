@@ -9,8 +9,6 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Box;
-import javax.swing.BoxLayout;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import utils.ConsumoAPI;
 
@@ -175,88 +173,117 @@ public class Pokedex extends javax.swing.JFrame {
     }
     
     
-    public void cargarPaginador(){
-        // 
-        
-        
-        panelPaginador.removeAll();
-        panelPaginador.add(Box.createHorizontalGlue());
-        
-        JButton btn_primer_pagina = new JButton("<<");
-        btn_primer_pagina.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                pagina = 1;
-                cargarPokemones();
-            }
-        });
-        
-        panelPaginador.add(btn_primer_pagina);
-        
-        JButton btn_pagina_atras = new JButton("<");
-        btn_pagina_atras.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                pagina -= 1;
-                cargarPokemones();
-            }
-        });
-        panelPaginador.add(btn_pagina_atras);
-        
-        for (int i=0; i<7; i++){
-            JButton botones = new JButton(String.valueOf(lista_numeros[i]));
-            panelPaginador.add(botones);
-            if(lista_numeros[i] == pagina){
-                botones.setBackground(Color.BLUE);
-                botones.setForeground(Color.WHITE);
-            }
-            
-            final int posicion = i;
-            
-            botones.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    pagina = lista_numeros[posicion];
-                    cargarPokemones();
-                }
-            });
+   public void cargarPaginador() {
+    int totalPaginas = 66;
+    int startPage = Math.max(1, pagina - 3);
+    int endPage = Math.min(totalPaginas, pagina + 3);
+
+    for (int i = 0; i < lista_numeros.length; i++) {
+        lista_numeros[i] = startPage + i;
+        if (lista_numeros[i] > totalPaginas) {
+            lista_numeros[i] = -1;
         }
-        
-        JButton btn_pagina_siguiente = new JButton(">");
-        btn_pagina_siguiente.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                pagina += 1;
-                cargarPokemones();
-            }
-        });
-        panelPaginador.add(btn_pagina_siguiente);
-        JButton btn_ultima_pagina = new JButton(">>");
-        btn_ultima_pagina.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                pagina = 66;
-                cargarPokemones();
-            }
-        });
-        panelPaginador.add(btn_ultima_pagina);
-        
-        
-        // Imprimir Boton Primer Pagina CHECK
-        // Imprimir Boton Pagina Atras CHECK
-        // Imprimir Botones de Paginas CHECK
-        // Imprimir Boton Pagina suiguiente CHECK
-        // Imprimir boton ultima pagina CHECK
-        
-        
-       
-        panelPaginador.add(Box.createHorizontalGlue());
-        repaint();
-        revalidate();
-        
-        
     }
-    
+
+    panelPaginador.removeAll();
+    panelPaginador.add(Box.createHorizontalGlue());
+
+    JButton btn_primer_pagina = new JButton("<<");
+    btn_primer_pagina.setEnabled(pagina != 1);
+    btn_primer_pagina.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            pagina = 1;
+            cargarPokemones();
+        }
+    });
+    btn_primer_pagina.setContentAreaFilled(true);
+    btn_primer_pagina.setFocusPainted(true);
+    btn_primer_pagina.setBackground(new Color(255, 255, 255));
+    btn_primer_pagina.setForeground(new Color(0, 0, 0));
+    btn_primer_pagina.setFont(new Font("Arial", Font.BOLD, 14));
+    panelPaginador.add(btn_primer_pagina);
+
+    JButton btn_pagina_atras = new JButton("<");
+    btn_pagina_atras.setEnabled(pagina != 1);
+    btn_pagina_atras.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            pagina = Math.max(1, pagina - 1);
+            cargarPokemones();
+        }
+    });
+    btn_pagina_atras.setContentAreaFilled(true);
+    btn_pagina_atras.setFocusPainted(true);
+    btn_pagina_atras.setBackground(new Color(255, 255, 255));
+    btn_pagina_atras.setForeground(new Color(0, 0, 0));
+    btn_pagina_atras.setFont(new Font("Arial", Font.BOLD, 14));
+    panelPaginador.add(btn_pagina_atras);
+
+    for (int i = 0; i < lista_numeros.length; i++) {
+        if (lista_numeros[i] == -1) {
+            continue;
+        }
+        JButton botones = new JButton(String.valueOf(lista_numeros[i]));
+        botones.setContentAreaFilled(true);
+        botones.setFocusPainted(true);
+        botones.setBackground(new Color(255, 255, 255));
+        botones.setForeground(new Color(0, 0, 0));
+        botones.setFont(new Font("Arial", Font.BOLD, 14));
+        panelPaginador.add(botones);
+        if (lista_numeros[i] == pagina) {
+            botones.setBackground(Color.BLUE);
+            botones.setForeground(Color.WHITE);
+        }
+
+        final int pageNumber = lista_numeros[i];
+
+        botones.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                pagina = pageNumber;
+                cargarPokemones();
+            }
+        });
+    }
+
+    JButton btn_pagina_siguiente = new JButton(">");
+    btn_pagina_siguiente.setEnabled(pagina != totalPaginas);
+    btn_pagina_siguiente.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            pagina = Math.min(totalPaginas, pagina + 1);
+            cargarPokemones();
+        }
+    });
+    btn_pagina_siguiente.setContentAreaFilled(true);
+    btn_pagina_siguiente.setFocusPainted(true);
+    btn_pagina_siguiente.setBackground(new Color(255, 255, 255));
+    btn_pagina_siguiente.setForeground(new Color(0, 0, 0));
+    btn_pagina_siguiente.setFont(new Font("Arial", Font.BOLD, 14));
+    panelPaginador.add(btn_pagina_siguiente);
+
+    JButton btn_ultima_pagina = new JButton(">>");
+    btn_ultima_pagina.setEnabled(pagina != totalPaginas);
+    btn_ultima_pagina.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            pagina = totalPaginas;
+            cargarPokemones();
+        }
+    });
+    btn_ultima_pagina.setContentAreaFilled(true);
+    btn_ultima_pagina.setFocusPainted(true);
+    btn_ultima_pagina.setBackground(new Color(255, 255, 255));
+    btn_ultima_pagina.setForeground(new Color(0, 0, 0));
+    btn_ultima_pagina.setFont(new Font("Arial", Font.BOLD, 14));
+    panelPaginador.add(btn_ultima_pagina);
+
+    panelPaginador.add(Box.createHorizontalGlue());
+    repaint();
+    revalidate();
+}
+
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel contentPrincipal;
