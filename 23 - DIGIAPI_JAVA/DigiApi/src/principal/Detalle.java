@@ -10,6 +10,9 @@ import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 import utils.ConsumoAPI;
 
@@ -32,6 +35,7 @@ public class Detalle extends javax.swing.JFrame {
         setIconImage( getToolkit().createImage(ClassLoader.getSystemResource("imagenes/icono_ventana.png")) );
         setLocationRelativeTo(null);
         setVisible(true);
+        setResizable(false);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         
         String data = this.consumo.consumoGET(url_digimon);
@@ -57,6 +61,16 @@ public class Detalle extends javax.swing.JFrame {
         llenarTabla(tabla_nivel, dataJson.getAsJsonArray("levels"), "level");
         llenarTabla(tabla_atributos, dataJson.getAsJsonArray("attributes"), "attribute");
         llenarTabla(tabla_tipos, dataJson.getAsJsonArray("types"), "type");
+        
+        JsonArray fields = dataJson.getAsJsonArray("fields");
+        if (fields != null) {
+            for (int i = 0; i < fields.size(); i++) {
+                JsonObject field = fields.get(i).getAsJsonObject();
+                String fieldName = field.get("field").getAsString();
+                String fieldImageURL = field.get("image").getAsString();
+                añadir_campos(panel_campos, fieldName, fieldImageURL);
+            }
+        }
 
         revalidate();
         repaint();
@@ -74,6 +88,26 @@ public class Detalle extends javax.swing.JFrame {
             }
         } else {
             model.addRow(new Object[]{"N/A"});
+        }
+    }
+    
+    private void añadir_campos(JPanel panel, String fieldName, String imageURL) {
+        try {
+            URL imgUrl = new URL(imageURL);
+            Image imagen = getToolkit().createImage(imgUrl);
+            imagen = imagen.getScaledInstance(60, 60, Image.SCALE_SMOOTH); 
+            JLabel imgLabel = new JLabel(new ImageIcon(imagen));
+            JLabel nameLabel = new JLabel(fieldName, JLabel.CENTER);
+            
+            JPanel fieldPanel = new JPanel();
+            fieldPanel.setLayout(new javax.swing.BoxLayout(fieldPanel, javax.swing.BoxLayout.Y_AXIS));
+            fieldPanel.setBorder(new EmptyBorder(10, 10, 10, 10)); // Adds margin around the panel
+            
+            fieldPanel.add(imgLabel);
+            fieldPanel.add(nameLabel);
+            panel.add(fieldPanel);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(Detalle.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
    
@@ -148,18 +182,7 @@ public class Detalle extends javax.swing.JFrame {
         jScrollPane3.setViewportView(tabla_tipos);
 
         panel_campos.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout panel_camposLayout = new javax.swing.GroupLayout(panel_campos);
-        panel_campos.setLayout(panel_camposLayout);
-        panel_camposLayout.setHorizontalGroup(
-            panel_camposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 549, Short.MAX_VALUE)
-        );
-        panel_camposLayout.setVerticalGroup(
-            panel_camposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
+        panel_campos.setLayout(new javax.swing.BoxLayout(panel_campos, javax.swing.BoxLayout.X_AXIS));
         jScrollPane4.setViewportView(panel_campos);
 
         javax.swing.GroupLayout contentPrincipalLayout = new javax.swing.GroupLayout(contentPrincipal);
@@ -169,7 +192,7 @@ public class Detalle extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contentPrincipalLayout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addGroup(contentPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 561, Short.MAX_VALUE)
+                    .addComponent(jScrollPane4)
                     .addComponent(etq_id, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(etq_nombre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, contentPrincipalLayout.createSequentialGroup()
@@ -179,7 +202,7 @@ public class Detalle extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(etq_img, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(contentPrincipalLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(59, 59, 59)
                                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))))

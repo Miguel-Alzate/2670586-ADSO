@@ -14,8 +14,9 @@ import utils.ConsumoAPI;
 public class DetalleDigimones extends javax.swing.JPanel {
     
     ConsumoAPI consumo;
-    
+    String pagina_parseada;
     public DetalleDigimones(int Pagina_actual) {
+        this.pagina_parseada = String.valueOf(Pagina_actual);;
         this.consumo = new ConsumoAPI();
         initComponents();
         cargarImagenDigimones();
@@ -26,10 +27,10 @@ public class DetalleDigimones extends javax.swing.JPanel {
     public void cargarImagenDigimones() {
         contentPrincipal.setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
-        gbc.fill = GridBagConstraints.BOTH;  // Llenar completamente el espacio de la celda
-        gbc.weighty = 1.0;                   // Expandirse verticalmente
+        gbc.fill = GridBagConstraints.BOTH;  
+        gbc.weighty = 1.0;                 
 
-        String endpoint = "https://digi-api.com/api/v1/digimon?page=2";
+        String endpoint = "https://digi-api.com/api/v1/digimon?page="+pagina_parseada;
         String data = this.consumo.consumoGET(endpoint);
 
         JsonObject dataJson = JsonParser.parseString(data).getAsJsonObject();
@@ -45,8 +46,8 @@ public class DetalleDigimones extends javax.swing.JPanel {
 
             gbc.gridx = i % 3; // Columna
             gbc.gridy = i / 3; // Fila
-            gbc.weightx = 0.33; // Distribuir espacio horizontalmente
-            gbc.weighty = 0.5;  // Distribuir espacio verticalmente
+            gbc.weightx = 0.33; 
+            gbc.weighty = 0.5; 
             contentPrincipal.add(panelsito, gbc);
         }
 
