@@ -22,8 +22,8 @@ public class DigiAPI extends javax.swing.JFrame {
         setVisible(true);  
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         
-        Image icono_central = getToolkit().createImage(ClassLoader.getSystemResource("imagenes/digimon_logo.png"));
-        icono_central = icono_central.getScaledInstance(130, 130, Image.SCALE_SMOOTH);
+        Image icono_central = getToolkit().createImage(ClassLoader.getSystemResource("imagenes/digilogo.png"));
+        icono_central = icono_central.getScaledInstance(200, 95, Image.SCALE_SMOOTH);
         etq_logo_central.setIcon(new ImageIcon(icono_central));
     }
     @SuppressWarnings("unchecked")
@@ -73,11 +73,11 @@ public class DigiAPI extends javax.swing.JFrame {
                 .addGroup(contentPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(panel_digimones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panel_paginador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contentPrincipalLayout.createSequentialGroup()
-                .addContainerGap(335, Short.MAX_VALUE)
-                .addComponent(etq_logo_central, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(336, 336, 336))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(etq_logo_central, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(213, 213, 213))
         );
         contentPrincipalLayout.setVerticalGroup(
             contentPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

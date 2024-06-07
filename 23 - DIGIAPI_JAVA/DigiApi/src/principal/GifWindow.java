@@ -19,20 +19,20 @@ public class GifWindow extends javax.swing.JFrame {
         setResizable(false);
         setLocationRelativeTo(null);
 
-        setIconImage(getToolkit().createImage(ClassLoader.getSystemResource("imagenes/pokeball.png")));
+        setIconImage(getToolkit().createImage(ClassLoader.getSystemResource("imagenes/icono_ventana.png")));
 
-        ImageIcon gifIcon = new ImageIcon(ClassLoader.getSystemResource("imagenes/pokeball.gif"));
+        ImageIcon gifIcon = new ImageIcon(ClassLoader.getSystemResource("imagenes/gif_inicio.gif"));
         etq_gif = new JLabel(gifIcon);
         etq_gif.setOpaque(false); 
         etq_gif.setVisible(true); 
         jPanel1.add(etq_gif);
         setComponentZOrder(etq_gif, 0); 
 
-        timer = new Timer(1500, new ActionListener() {
+        timer = new Timer(2500, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                PokeAPI pokeAPI = new PokeAPI();
+                DigiAPI ventana = new DigiAPI();
             }
         });
         timer.setRepeats(false);

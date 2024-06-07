@@ -1,10 +1,13 @@
 
 package principal;
 
+import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import java.awt.GridLayout;
 import utils.ConsumoAPI;
 
 
@@ -20,25 +23,33 @@ public class DetalleDigimones extends javax.swing.JPanel {
     
     
     
-    public void cargarImagenDigimones(){
-        contentPrincipal.setLayout(new GridLayout(2, 3)); 
-        
-        String endpoint = "https://digi-api.com/api/v1/digimon?page=0";
+    public void cargarImagenDigimones() {
+        contentPrincipal.setLayout(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.fill = GridBagConstraints.BOTH;  // Llenar completamente el espacio de la celda
+        gbc.weighty = 1.0;                   // Expandirse verticalmente
+
+        String endpoint = "https://digi-api.com/api/v1/digimon?page=2";
         String data = this.consumo.consumoGET(endpoint);
-        
+
         JsonObject dataJson = JsonParser.parseString(data).getAsJsonObject();
         JsonArray content = dataJson.getAsJsonArray("content");
-       
 
-        for (int i=0; i<content.size(); i++) {
+        for (int i = 0; i < content.size(); i++) {
             JsonObject temp = content.get(i).getAsJsonObject();
-            
-            mini_detalle panelsito = new mini_detalle( temp.get("href").getAsString() );
-            
-            
-           contentPrincipal.add(panelsito);
+
+            mini_detalle panelsito = new mini_detalle(temp.get("href").getAsString());
+            panelsito.setPreferredSize(new Dimension(175, 175));
+            panelsito.setMinimumSize(new Dimension(175, 175));
+            panelsito.setMaximumSize(new Dimension(175, 175));
+
+            gbc.gridx = i % 3; // Columna
+            gbc.gridy = i / 3; // Fila
+            gbc.weightx = 0.33; // Distribuir espacio horizontalmente
+            gbc.weighty = 0.5;  // Distribuir espacio verticalmente
+            contentPrincipal.add(panelsito, gbc);
         }
-        
+
         revalidate();
         repaint();
     }

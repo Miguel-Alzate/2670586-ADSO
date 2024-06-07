@@ -4,7 +4,7 @@ package principal;
 public class Principal {
 
     public static void main(String[] args) {
-        DigiAPI ventana = new DigiAPI();
+        GifWindow ventana = new GifWindow();
     }
     
 }
