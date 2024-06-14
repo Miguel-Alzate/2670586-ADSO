@@ -4,61 +4,224 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script type="text/javascript" src="myscript.js"></script>
-    <title>test</title>
+    <script src="myscript.js"></script>
+    <title>Crud API - Categorías y Obras</title>
 </head>
 <body>
-    <div class="container mt-5" id="contentPrincipal"> 
-        <div class="text-center">   
-            <button type="button" onclick="cargarCategorias()" class="btn btn-primary">Mostrar Categorias</button>
+    <div id="contentPrincipal" class="container mt-4"> 
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Gestión de Categorías</h5>
+                <button type="button" onclick="cargarCategorias()" class="btn btn-primary">Cargar Categorías</button>
+                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInsertarCategoria" aria-expanded="false" aria-controls="collapseInsertarCategoria">
+                    Ingresar Categoría
+                </button>
+                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEliminarCategoria" aria-expanded="false" aria-controls="collapseEliminarCategoria">
+                    Eliminar Categoría
+                </button>
+            </div>
         </div>
-        
-        <form id="formularioEliminar">
-            <div class="row mt-2 justify-content-center">
-                <div class="col-6 mb-3">
-                    <label for="categoriaEliminar" class="form-label">Categoria</label>
-                    <input type="text" class="form-control" id="categoriaEliminar" name="categoriaEliminar">
-                </div>
-                <div class="col-12 text-center mt-2 mb-5"> 
-                    <button type="button" onclick="eliminarCategoria()" class="btn btn-danger">Eliminar Categoria</button>
-                </div>
-            </div>
-        </form>
-        <form id="formularioInsertar">
-            <div class="row mt-2 justify-content-center">   
-                <div class="col-6 mb-3">
-                    <label for="nombre_categoria" class="form-label">Categoria</label>
-                    <input type="text" class="form-control" id="nombre_categoria" name="nombre_categoria">
-                </div>
-                <div class="col-12 text-center mt-2 mb-5"> 
-                    <button type="button" onclick="insertarCategoria()" class="btn btn-primary">Insertar Categoria</button>
-                </div>
-            </div>
-        </form>  
 
-        <form id="formularioActualizar">
-            <div class="row mt-2 justify-content-center">   
-                <div class="col-6 mb-3">
-                    <label for="nuevo_nombre" class="form-label">Nuevo nombre de categoria:</label>
-                    <input type="text" class="form-control" id="nuevo_nombre" name="nuevo_nombre">
+        <div class="collapse" id="collapseInsertarCategoria">
+            <form id="formularioInsertarCategoria">
+                <div class="row mt-5 justify-content-center">   
+                    <div class="col-6 mb-3">
+                        <label for="nombre_categoria" class="form-label">Nombre de la Categoría</label>
+                        <input type="text" class="form-control" id="nombre_categoria" name="nombre_categoria">
+                    </div>
+                    <div class="col-12 text-center mt-2 mb-5"> 
+                        <button type="button" onclick="insertarCategoria()" class="btn btn-primary">Insertar Categoría</button>
+                    </div>
                 </div>
-                <div class="col-12 text-center mt-2 mb-5"> 
-                    <button type="button" onclick="actualizarPersona()" class="btn btn-success">Actualizar Persona</button>      
-                </div>         
-            </div>
-        </form>
+            </form>
+        </div>
 
+        <div class="collapse" id="collapseEliminarCategoria">
+            <form id="formularioEliminarCategoria">
+                <div class="row mt-5 justify-content-center">
+                    <div class="col-6 mb-3">
+                        <label for="categoriaEliminar" class="form-label">Nombre de la Categoría a Eliminar</label>
+                        <input type="text" class="form-control" id="categoriaEliminar" name="categoriaEliminar">
+                    </div>
+                    <div class="col-12 text-center mt-2 mb-5"> 
+                        <button type="button" onclick="eliminarCategoria()" class="btn btn-danger">Eliminar Categoría</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+          
         <table class="table table-hover table-striped border mt-3" id="tablaCategorias">
             <thead class="table table-dark ">
                 <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Nombre</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre de Categoría</th>
+                    <th scope="col">Actualizar</th>
                 </tr>
             </thead>
             <tbody id="tbodyCategorias">
-                    
+                
             </tbody>
         </table>
+   
+
+        <div class="card mt-5">
+            <div class="card-body">
+                <h5 class="card-title">Gestión de Obras</h5>
+                <button type="button" onclick="cargarObras()" class="btn btn-primary">Cargar Obras</button>
+                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInsertarObra" aria-expanded="false" aria-controls="collapseInsertarObra">
+                    Ingresar Obra
+                </button>
+                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEliminarObra" aria-expanded="false" aria-controls="collapseEliminarObra">
+                    Eliminar Obra
+                </button>
+            </div>
+        </div>
+
+        <div class="collapse" id="collapseInsertarObra">
+            <form id="formularioInsertarObra">
+                <div class="row mt-5">
+                    <div class="col-6 mb-3">
+                        <label for="nombre_obra" class="form-label">Nombre de la Obra</label>
+                        <input type="text" class="form-control" id="nombre_obra" name="nombre_obra">
+                    </div>
+                    <div class="col-6 mb-3">
+                        <label for="id_categoria" class="form-label">ID de Categoría</label>
+                        <input type="text" class="form-control" id="id_categoria" name="id_categoria">
+                    </div>
+                    <div class="col-6 mb-3">
+                        <label for="fecha_presentacion" class="form-label">Fecha de Presentación</label>
+                        <input type="date" class="form-control" id="fecha_presentacion" name="fecha_presentacion">
+                    </div>
+                    <div class="col-6 mb-3">
+                        <label for="lugar_presentacion" class="form-label">Lugar de Presentación</label>
+                        <input type="text" class="form-control" id="lugar_presentacion" name="lugar_presentacion">
+                    </div>
+                    <div class="col-6 mb-3">
+                        <label for="duracion" class="form-label">Duración</label>
+                        <input type="text" class="form-control" id="duracion" name="duracion">
+                    </div>
+                    <div class="col-6 mb-3">
+                        <label for="actor_principal" class="form-label">Actor Principal</label>
+                        <input type="text" class="form-control" id="actor_principal" name="actor_principal">
+                    </div>
+                    <div class="col-12 text-center mt-2 mb-5"> 
+                        <button type="button" onclick="insertarObra()" class="btn btn-primary">Insertar Obra</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="collapse" id="collapseEliminarObra">
+            <form id="formularioEliminarObra">
+                <div class="row mt-5 justify-content-center">
+                    <div class="col-6 mb-3">
+                        <label for="obraEliminar" class="form-label">Nombre de la Obra a Eliminar</label>
+                        <input type="text" class="form-control" id="obraEliminar" name="obraEliminar">
+                    </div>
+                    <div class="col-12 text-center mt-2 mb-5"> 
+                        <button type="button" onclick="eliminarObra()" class="btn btn-danger">Eliminar Obra</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+        <table class="table table-hover table-striped border mt-3" id="tablaObras">
+            <thead class="table table-dark ">
+                <tr>
+                    <th scope="col">Nombre de la Obra</th>
+                    <th scope="col">ID de Categoría</th>
+                    <th scope="col">Fecha de Presentación</th>
+                    <th scope="col">Lugar de Presentación</th>
+                    <th scope="col">Duración</th>
+                    <th scope="col">Actor Principal</th>
+                    <th scope="col">Actualizar</th>
+                </tr>
+            </thead>
+            <tbody id="tbodyObras">
+                
+            </tbody>
+        </table>
+    </div>
+
+
+
+    <!-- Modal actualizar obra -->
+    <div class="modal fade" id="modalActualizarObra" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Actualizar Obra</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="formularioActualizarObra">
+                        <div class="row">
+                            <div class="col-6 mb-3">
+                                <label for="nombre_obra_actualizar" class="form-label">Nombre de la Obra</label>
+                                <input type="text" class="form-control" id="nombre_obra_actualizar" name="nombre_obra_actualizar">
+                            </div>
+                            <div class="col-6 mb-3">
+                                <label for="id_categoria_actualizar" class="form-label">ID de Categoría</label>
+                                <input type="text" class="form-control" id="id_categoria_actualizar" name="id_categoria_actualizar">
+                            </div>
+                            <div class="col-6 mb-3">
+                                <label for="fecha_presentacion_actualizar" class="form-label">Fecha de Presentación</label>
+                                <input type="date" class="form-control" id="fecha_presentacion_actualizar" name="fecha_presentacion_actualizar">
+                            </div>
+                            <div class="col-6 mb-3">
+                                <label for="lugar_presentacion_actualizar" class="form-label">Lugar de Presentación</label>
+                                <input type="text" class="form-control" id="lugar_presentacion_actualizar" name="lugar_presentacion_actualizar">
+                            </div>
+                            <div class="col-6 mb-3">
+                                <label for="duracion_actualizar" class="form-label">Duración</label>
+                                <input type="text" class="form-control" id="duracion_actualizar" name="duracion_actualizar">
+                            </div>
+                            <div class="col-6 mb-3">
+                                <label for="actor_principal_actualizar" class="form-label">Actor Principal</label>
+                                <input type="text" class="form-control" id="actor_principal_actualizar" name="actor_principal_actualizar">
+                            </div>
+                            <div class="col-12 mb-3">
+                                <input type="hidden" id="obra_id_actualizar" name="obra_id_actualizar">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" onclick="actualizarObra()" data-bs-dismiss="modal" class="btn btn-success">Actualizar Obra</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal actualizar categoría -->
+    <div class="modal fade" id="modalActualizarCategoria" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Actualizar Categoría</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formularioActualizarCategoria">
+                    <div class="row">   
+                        <div class="col-12 mb-3">
+                            <label for="nuevo_nombre_categoria" class="form-label">Nuevo nombre de categoría:</label>
+                            <input type="text" class="form-control" id="nuevo_nombre_categoria" name="nuevo_nombre_categoria">
+                        </div>
+                        <div class="col-12 mb-3">
+                            <label hidden for="categoria_id" class="form-label">ID de la Categoría:</label>
+                            <input hidden type="text" class="form-control" id="categoria_id" name="categoria_id">
+                        </div>                
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" onclick="actualizarCategoria()" data-bs-dismiss="modal" class="btn btn-success">Actualizar Categoría</button>
+            </div>
+            </div>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

@@ -4,11 +4,13 @@
     if  (!empty($_POST['nombre_categoria']))  {
 
         $nombre_categoria = $_POST['nombre_categoria'];
+        $id_categoria = $_POST['id_categoria'];
  
         try {
-            $consulta = $base_de_datos->prepare("UPDATE categorias SET nombre_categoria=:cat WHERE nombre_categoria=:cat");
+            $consulta = $base_de_datos->prepare("UPDATE categorias SET nombre_categoria=:cat WHERE id_categoria=:id");
 
             $consulta->bindParam(':cat', $nombre_categoria);
+            $consulta->bindParam(':id', $id_categoria);
             
             $proceso = $consulta->execute();
 
